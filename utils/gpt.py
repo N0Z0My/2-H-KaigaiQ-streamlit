@@ -20,14 +20,12 @@ async def evaluate_answer_with_gpt(question, options, user_answer):
 
     1. 問題文と選択肢から最も適切な選択肢を１つ選んでください。（この内容は出力しないでください）
     2. ユーザーの回答が最も適切な選択肢と一致するか評価してください。（この内容は出力しないでください）
-    3-1. RESULT:[CORRECT]の場合、正解とだけ伝えてください。
-    3-2. RESULT:[INCORRECT]の場合、間違いを笑いに変えて、短い正解の解説をしてください。
-    4. 以下のフォーマットで厳密に回答してください：
+    3. 以下のフォーマットで厳密に回答してください：
 
     RESULT:[CORRECT] または RESULT:[INCORRECT]
     あなたの回答: [ユーザーの回答]
     正解: [適切な選択肢]
-    解説: [RESULT:[CORRECT]の場合、正解とだけ伝えてください。RESULT:[INCORRECT]の場合、間違いを笑いに変えて、短い正解の解説をしてください。]
+    解説: [RESULT:[CORRECT]の場合、正解と伝えてください。RESULT:[INCORRECT]の場合、間違いを笑いに変えて、短い正解の解説をしてください。]
     """
 
     try:
