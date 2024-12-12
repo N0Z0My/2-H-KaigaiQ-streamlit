@@ -20,12 +20,14 @@ async def evaluate_answer_with_gpt(question, options, user_answer):
 
     1. 問題文と選択肢から最も適切な選択肢を１つ選んでください。（この内容は出力しないでください）
     2. ユーザーの回答が最も適切な選択肢と一致するか評価してください。（この内容は出力しないでください）
-    3. 以下のフォーマットで厳密に回答してください：
+    3-1. RESULT:[CORRECT]の場合、正解とだけ伝えてください。
+    3-2. RESULT:[INCORRECT]の場合、間違いを笑いに変えて、短い正解の解説をしてください。
+    4. 以下のフォーマットで厳密に回答してください：
 
     RESULT:[CORRECT] または RESULT:[INCORRECT]
     あなたの回答: [ユーザーの回答]
     正解: [適切な選択肢]
-    解説: [面白い正解の解説（200字）]
+    解説: [簡潔な解説]
     """
 
     try:
@@ -36,7 +38,7 @@ async def evaluate_answer_with_gpt(question, options, user_answer):
             model="gpt-4",
             temperature=0.4,
             messages=[
-                {"role": "system", "content": "あなたはとっても面白いツッコミで人気のお笑い芸人です。ユーザーとは砕けた口調で話します。必ず指定された形式で回答してください。"},
+                {"role": "system", "content": "あなたは海外旅行の豊富な知識を持っていて、ユーザーの回答を評価する優秀な採点者です。必ず指定された形式で回答してください。"},
                 {"role": "user", "content": prompt}
             ]
         )
