@@ -25,7 +25,7 @@ async def evaluate_answer_with_gpt(question, options, user_answer):
     RESULT:[CORRECT] または RESULT:[INCORRECT]
     あなたの回答: [ユーザーの回答]
     正解: [適切な選択肢]
-    解説: [200字以内の解説。RESULT:[CORRECT]の場合、正解と伝えてください。RESULT:[INCORRECT]の場合、短い文で正解の解説をしてください。]
+    解説: [200字以内の解説。RESULT:[CORRECT]の場合、正解と伝えてください。RESULT:[INCORRECT]の場合、短い文で正解を覚えやすくなるような解説をしてください。]
     """
 
     try:
