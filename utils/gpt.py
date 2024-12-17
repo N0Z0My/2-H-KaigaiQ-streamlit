@@ -25,7 +25,7 @@ async def evaluate_answer_with_gpt(question, options, user_answer):
     RESULT:[CORRECT] または RESULT:[INCORRECT]
     あなたの回答: [ユーザーの回答]
     正解: [適切な選択肢]
-    解説: [200字以内の解説。RESULT:[CORRECT]の場合、正解と伝えてください。RESULT:[INCORRECT]の場合、短い文で正解の解説をしてください。その時、間違いを笑いに変えることを意識してください。]
+    解説: [200字以内の解説。RESULT:[CORRECT]の場合、正解と伝えてください。RESULT:[INCORRECT]の場合、短い文で正解の解説をしてください。]
     """
 
     try:
@@ -34,9 +34,9 @@ async def evaluate_answer_with_gpt(question, options, user_answer):
         response = await asyncio.to_thread(
             client.chat.completions.create,
             model="gpt-4",
-            temperature=0.6,
+            temperature=0.5,
             messages=[
-                {"role": "system", "content": "あなたは海外旅行の豊富な知識を持っていて、ユーザーの回答を評価する優秀な採点者です。必ず指定された形式で回答してください。"},
+                {"role": "system", "content": "あなたは海外旅行の豊富な知識を持っている、カリスマ教師です。必ず指定された形式で回答してください。"},
                 {"role": "user", "content": prompt}
             ]
         )
